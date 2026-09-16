@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal SEVIM UIBBC 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg1: #F3E8F8;
+    --bg2: #FDECE0;
+    --ink: #17141B;
+    --ink-soft: #6E6877;
+    --paper: #FFFFFF;
+
+    --purple: #B6A2F7;   --purple-ink: #241357;
+    --gray: #E9E4DC;     --gray-ink: #2C2A26;
+    --red: #FF4B3E;      --red-ink: #FFFFFF;
+    --teal: #8FE3D0;     --teal-ink: #0B3B34;
+    --amber: #FFD37A;    --amber-ink: #4A3200;
+    --pink: #FFB0D2;     --pink-ink: #5B0F35;
+
+    --green: #B7E7B0;    --green-ink: #163B12;
+    --blue: #7EC8FF;     --blue-ink: #0B2B4A;
+
+    --black-pill: #181418;
+    --pill-text: #F2EEF8;
+    --shadow: rgba(30, 15, 45, 0.14);
+
+    --ink-rgb: 23, 20, 27;
+    --purple-rgb: 182, 162, 247;
+    --paper-rgb: 255, 255, 255;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg1: #241C2E; --bg2: #2E2019;
+      --ink: #F3EFF7; --ink-soft: #B4AAC0;
+      --paper: #1F1A26;
+      --purple: #8E77E8;  --purple-ink: #F1ECFF;
+      --gray: #3A352E;    --gray-ink: #F0ECE4;
+      --red: #FF5B4D;     --red-ink: #FFFFFF;
+      --teal: #2C7A69;    --teal-ink: #DFFBF3;
+      --amber: #B98A2A;   --amber-ink: #FFF3DA;
+      --pink: #9B4E76;    --pink-ink: #FFE3F1;
+      --green: #2E5A28;   --green-ink: #DFF6D8;
+      --blue: #2E6FA8;    --blue-ink: #E4F2FF;
+      --black-pill: #0F0C13; --pill-text: #F2EEF8;
+      --shadow: rgba(0, 0, 0, 0.4);
+      --ink-rgb: 243, 239, 247;
+      --purple-rgb: 142, 119, 232;
+      --paper-rgb: 31, 26, 38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg1: #241C2E; --bg2: #2E2019;
+    --ink: #F3EFF7; --ink-soft: #B4AAC0;
+    --paper: #1F1A26;
+    --purple: #8E77E8;  --purple-ink: #F1ECFF;
+    --gray: #3A352E;    --gray-ink: #F0ECE4;
+    --red: #FF5B4D;     --red-ink: #FFFFFF;
+    --teal: #2C7A69;    --teal-ink: #DFFBF3;
+    --amber: #B98A2A;   --amber-ink: #FFF3DA;
+    --pink: #9B4E76;    --pink-ink: #FFE3F1;
+    --green: #2E5A28;   --green-ink: #DFF6D8;
+    --blue: #2E6FA8;    --blue-ink: #E4F2FF;
+    --black-pill: #0F0C13; --pill-text: #F2EEF8;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --ink-rgb: 243, 239, 247;
+    --purple-rgb: 142, 119, 232;
+    --paper-rgb: 31, 26, 38;
+  }
+  :root[data-theme="light"] {
+    --bg1: #F3E8F8; --bg2: #FDECE0;
+    --ink: #17141B; --ink-soft: #6E6877;
+    --paper: #FFFFFF;
+    --purple: #B6A2F7;   --purple-ink: #241357;
+    --gray: #E9E4DC;     --gray-ink: #2C2A26;
+    --red: #FF4B3E;      --red-ink: #FFFFFF;
+    --teal: #8FE3D0;     --teal-ink: #0B3B34;
+    --amber: #FFD37A;    --amber-ink: #4A3200;
+    --pink: #FFB0D2;     --pink-ink: #5B0F35;
+    --green: #B7E7B0;    --green-ink: #163B12;
+    --blue: #7EC8FF;     --blue-ink: #0B2B4A;
+    --black-pill: #181418; --pill-text: #F2EEF8;
+    --shadow: rgba(30, 15, 45, 0.14);
+    --ink-rgb: 23, 20, 27;
+    --purple-rgb: 182, 162, 247;
+    --paper-rgb: 255, 255, 255;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .app { max-width: 460px; margin: 0 auto; padding: 22px 16px 56px; }
+
+  /* ---- Top bar ---- */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .eyebrow {
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
+  .theme-toggle {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--paper); border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 10px var(--shadow);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--ink); flex-shrink: 0;
+  }
+  .theme-toggle svg { width: 17px; height: 17px; }
+  .theme-toggle .moon { display: none; }
+  :root[data-theme="dark"] .theme-toggle .sun { display: none; }
+  :root[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+  /* ---- Header: title + countdown ---- */
+  .headrow {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    align-items: stretch; margin-bottom: 18px;
+  }
+  h1.pagetitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 32px; line-height: 1.05;
+    margin: 0; letter-spacing: -0.01em;
+    flex: 1 1 150px;
+    align-self: center;
+  }
+  .countdown {
+    background: var(--green); color: var(--green-ink);
+    border-radius: 20px; padding: 12px 14px;
+    flex: 1 1 190px; max-width: 230px;
+  }
+  .countdown .cd-label {
+    font-size: 11px; font-weight: 700; line-height: 1.35;
+    opacity: 0.85; margin-bottom: 8px;
+  }
+  .countdown .cd-cells {
+    display: flex; gap: 6px;
+  }
+  .countdown .cd-cell {
+    background: rgba(0,0,0,0.12);
+    border-radius: 10px;
+    padding: 5px 4px 6px;
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+  }
+  :root[data-theme="dark"] .countdown .cd-cell,
+  :root:not([data-theme="light"]) .countdown .cd-cell {
+    background: rgba(255,255,255,0.14);
+  }
+  .countdown .cd-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 16px; line-height: 1.1; display: block;
+  }
+  .countdown .cd-unit {
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.04em;
+    opacity: 0.75; display: block; margin-top: 1px;
+  }
+  .countdown .cd-status {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 15px;
+  }
+
+  /* ---- Day capsule (liquid-glass sliding indicator) ---- */
+  .daycapsule {
+    position: relative;
+    display: flex; gap: 4px;
+    background: var(--black-pill);
+    border-radius: 22px; padding: 6px; margin-bottom: 14px;
+    isolation: isolate;
+  }
+  .glass-slider {
+    position: absolute;
+    top: 6px; bottom: 6px; left: 0;
+    width: 0;
+    border-radius: 17px;
+    z-index: 0;
+    pointer-events: none;
+    transition: transform .5s cubic-bezier(.34,1.35,.4,1), width .5s cubic-bezier(.34,1.35,.4,1), opacity .25s ease;
+  }
+  .slider-day {
+    background: linear-gradient(180deg, rgba(var(--purple-rgb),0.92), rgba(var(--purple-rgb),0.78));
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.28);
+    box-shadow: 0 8px 18px rgba(var(--purple-rgb),0.35), inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 2px rgba(0,0,0,0.08);
+  }
+  .slider-section {
+    background: linear-gradient(180deg, rgba(var(--ink-rgb),0.92), rgba(var(--ink-rgb),0.8));
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(var(--paper-rgb),0.22);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.16);
+  }
+  @keyframes glassTap {
+    0% { filter: brightness(1) saturate(180%); }
+    40% { filter: brightness(1.3) saturate(210%); }
+    100% { filter: brightness(1) saturate(180%); }
+  }
+  .glass-flash { animation: glassTap .45s ease; }
+
+  .daybtn {
+    position: relative; z-index: 1;
+    flex: 1; border: none; background: transparent; border-radius: 17px;
+    padding: 10px 6px 12px; text-align: center; font-family: 'Inter', sans-serif;
+    color: var(--pill-text); cursor: pointer;
+    transition: color .3s ease, transform .12s ease;
+  }
+  .daybtn .dd { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.8; margin-bottom: 4px; }
+  .daybtn .dn { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; }
+  .daybtn.active { color: var(--purple-ink); }
+  .daybtn.active .dd { opacity: 0.75; }
+  .daybtn:active { transform: scale(0.96); }
+
+  .datesub { font-size: 13px; color: var(--ink-soft); font-weight: 500; margin: 0 2px 22px; }
+  .datesub strong { color: var(--ink); font-weight: 700; }
+
+  /* ---- Section pills (liquid-glass sliding indicator) ---- */
+  .sectionpills {
+    position: relative;
+    display: flex; gap: 4px;
+    background: var(--paper);
+    border-radius: 22px; padding: 5px;
+    margin-bottom: 16px; overflow-x: auto;
+    box-shadow: 0 4px 14px var(--shadow);
+    isolation: isolate;
+  }
+  .sectionpill {
+    position: relative; z-index: 1;
+    border: none; background: transparent; color: var(--ink-soft);
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12.5px;
+    padding: 9px 16px; border-radius: 18px; white-space: nowrap; cursor: pointer;
+    transition: color .3s ease, transform .12s ease;
+  }
+  .sectionpill.active { color: var(--paper); }
+  .sectionpill:active { transform: scale(0.96); }
+
+  /* ---- Cards ---- */
+  .cardlist { display: flex; flex-direction: column; gap: 16px; }
+  .card { position: relative; border-radius: 26px; padding: 20px 20px 18px; overflow: hidden; }
+  .card.c-purple { background: var(--purple); color: var(--purple-ink); }
+  .card.c-gray   { background: var(--gray);   color: var(--gray-ink); }
+  .card.c-red    { background: var(--red);    color: var(--red-ink); }
+  .card.c-teal   { background: var(--teal);   color: var(--teal-ink); }
+  .card.c-amber  { background: var(--amber);  color: var(--amber-ink); }
+  .card.c-pink   { background: var(--pink);   color: var(--pink-ink); }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; gap: 10px; }
+  .icon-badge {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .card.c-gray .icon-badge, .card.c-amber .icon-badge { background: rgba(23,20,27,0.08); }
+  .icon-badge svg { width: 19px; height: 19px; }
+
+  .badgecol { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+  .time-badge {
+    background: var(--black-pill); color: var(--pill-text);
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
+    padding: 8px 14px; border-radius: 20px; white-space: nowrap;
+  }
+  .live-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--blue); color: var(--blue-ink);
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px;
+    padding: 6px 11px 6px 9px; border-radius: 16px; white-space: nowrap;
+    animation: blink-fade 1.3s ease-in-out infinite;
+  }
+  .live-badge[hidden] { display: none; }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--blue-ink);
+    animation: blink-dot 1.1s ease-in-out infinite;
+  }
+  @keyframes blink-fade { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+  @keyframes blink-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.4; } }
+
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px;
+    line-height: 1.2; margin: 0 0 10px;
+  }
+  .card-place {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--black-pill); color: var(--pill-text);
+    font-size: 11.5px; font-weight: 700; padding: 7px 13px 7px 10px;
+    border-radius: 18px; margin-bottom: 10px;
+  }
+  .card-place svg { width: 12px; height: 12px; }
+  .detail-toggle {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.4); border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11.5px;
+    color: inherit; padding: 6px 12px 6px 10px; border-radius: 14px;
+    margin-bottom: 2px; transition: background .15s ease;
+  }
+  .card.c-gray .detail-toggle, .card.c-amber .detail-toggle { background: rgba(23,20,27,0.08); }
+  .detail-toggle:hover { background: rgba(255,255,255,0.6); }
+  .card.c-gray .detail-toggle:hover, .card.c-amber .detail-toggle:hover { background: rgba(23,20,27,0.14); }
+  .detail-toggle .chev { display: inline-block; transition: transform .25s ease; font-weight: 800; }
+  .detail-toggle.open .chev { transform: rotate(90deg); }
+  .detail-content { overflow: hidden; max-height: 0; transition: max-height .3s ease; }
+  .card-detail {
+    display: flex; gap: 6px; align-items: flex-start;
+    font-size: 13px; line-height: 1.55; margin: 8px 0 0; opacity: 0.88; font-weight: 500;
+  }
+
+  /* ---- Interaction animations ---- */
+  @keyframes pop {
+    0% { transform: scale(1); }
+    35% { transform: scale(0.9); }
+    68% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+  .anim-pop { animation: pop .38s cubic-bezier(.34,1.56,.64,1); }
+
+  @keyframes spin180 { from { transform: rotate(0deg); } to { transform: rotate(180deg); } }
+  .theme-toggle.spin { animation: spin180 .4s ease; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .cardlist.anim-in { animation: fadeInUp .32s ease; }
+
+  .daybtn, .sectionpill, .theme-toggle { transition: transform .15s ease, background .18s ease, color .18s ease; }
+
+  footer.note {
+    margin-top: 24px; padding: 14px 16px; border-radius: 16px;
+    background: var(--paper); box-shadow: 0 6px 18px var(--shadow);
+    font-size: 12px; color: var(--ink-soft); line-height: 1.5; text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="eyebrow">SEVIM &middot; UIBBC 2026</div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">
+      <svg class="sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <div class="headrow">
+    <h1 class="pagetitle">Event Schedule</h1>
+    <div class="countdown" id="countdownBox"></div>
+  </div>
+
+  <div class="daycapsule" id="dayCapsule"></div>
+  <p class="datesub" id="dateSub"></p>
+
+  <div class="sectionpills" id="sectionPills"></div>
+
+  <div class="cardlist" id="cardList"></div>
+
+  <footer class="note">Susunan acara dapat berubah menyesuaikan kondisi di lapangan.</footer>
+</div>
+
+<script>
+const EVENT_YEAR = 2026;
+const EVENT_MONTH = 8; // September (0-indexed)
+const EVENT_START = new Date(EVENT_YEAR, EVENT_MONTH, 18, 11, 0, 0);
+const EVENT_END = new Date(EVENT_YEAR, EVENT_MONTH, 19, 11, 30, 0);
+
+const DATA = [
+  {
+    dd: "Jum", dn: 18, full: "Jumat, 18 September 2026",
+    sections: [
+      {
+        title: "Pembukaan & Materi",
+        items: [
+          { time: "11.00", time2: "12.30", kegiatan: "Registrasi Peserta & Makan Siang", tempat: "Aula Ballroom Hotel Montana", cat: "meal" },
+          { time: "12.30", time2: "13.00", kegiatan: "Registrasi Peserta Tahap 2", tempat: "Aula Ballroom Hotel Montana", cat: "reg" },
+          { time: "13.00", time2: "13.30", kegiatan: "Gladi Bersih & Penampilan Tari/Nyanyi", detail: "Persiapan peserta sebelum pembukaan resmi.", tempat: "Aula Ballroom Hotel Montana", cat: "activity" },
+          { time: "13.30", time2: "14.30", kegiatan: "Opening Ceremony", detail: "Pembukaan resmi \"Strengthening the Vision and Mission\" — hadroh, tilawah, sambutan Rektor, pengenalan pimpinan & foto bersama.", tempat: "Aula Ballroom Hotel Montana", cat: "ceremony", tone: "red" },
+          { time: "14.30", time2: "16.30", kegiatan: "Change Leader in Digital Era", detail: "Materi oleh Prof. Dr. H. Achmad Kholiq, M.Ag. — Guru Besar UIBBC.", tempat: "Aula Ballroom Hotel Montana", cat: "seminar" }
+        ]
+      },
+      {
+        title: "Sore & Malam",
+        items: [
+          { time: "16.30", time2: "17.00", kegiatan: "Leadership Dinner Challenge", tempat: "Aula Ballroom Hotel Montana", cat: "activity" },
+          { time: "17.00", time2: "18.00", kegiatan: "ISHOMA", tempat: "Aula Ballroom Hotel Montana", cat: "meal" },
+          { time: "18.00", time2: "18.30", kegiatan: "Sholat Maghrib Berjamaah", tempat: "Aula Ballroom Hotel Montana", cat: "prayer" },
+          { time: "18.30", time2: "19.00", kegiatan: "College Students as Role Models and Agents of Change", detail: "Pemateri: Ardi Fernando.", tempat: "Aula Ballroom Hotel Montana", cat: "seminar", tone: "red" },
+          { time: "19.00", time2: "19.30", kegiatan: "Sholat Isya Berjamaah", tempat: "Aula Ballroom Hotel Montana", cat: "prayer" },
+          { time: "19.30", time2: "21.30", kegiatan: "Challenge Stand HMJ", tempat: "Aula Ballroom Hotel Montana", cat: "activity" },
+          { time: "21.30", time2: "23.30", kegiatan: "Presentations UKK and UKM", tempat: "Aula Ballroom Hotel Montana", cat: "activity" }
+        ]
+      }
+    ]
+  },
+  {
+    dd: "Sab", dn: 19, full: "Sabtu, 19 September 2026",
+    sections: [
+      {
+        title: "Subuh & Pagi",
+        items: [
+          { time: "04.00", time2: "04.30", kegiatan: "Sholat Shubuh Berjamaah", tempat: "Aula Ballroom Hotel Montana", cat: "prayer" },
+          { time: "04.30", time2: "06.00", kegiatan: "Prophet Muhammad SAW as a Leader and Entrepreneur", detail: "Pemateri: Dr. Muhammadun, M.S.I.", tempat: "Aula Ballroom Hotel Montana", cat: "seminar", tone: "red" },
+          { time: "06.00", time2: "06.30", kegiatan: "Senam Bersama", detail: "Dipandu oleh Fenty Siregar, M.Pd.", tempat: "Lapangan Hotel Montana", cat: "sport" },
+          { time: "06.30", time2: "07.00", kegiatan: "Breakfast", tempat: "Aula Ballroom Hotel Montana", cat: "meal" }
+        ]
+      },
+      {
+        title: "Outbond & Penutupan",
+        items: [
+          { time: "07.00", time2: "10.30", kegiatan: "Outbond", detail: "Dipandu oleh Tim Outbond.", tempat: "Lapangan Hotel Montana", cat: "sport" },
+          { time: "10.30", time2: "11.00", kegiatan: "Closing Ceremony", detail: "Sambutan Rektor sekaligus penutupan resmi \"Happiness and Success Academic\", doa, menyanyi bersama & bersalaman peserta.", tempat: "Aula Ballroom Hotel Montana", cat: "ceremony", tone: "red" },
+          { time: "11.00", time2: "11.30", kegiatan: "Check Out", tempat: "Aula Ballroom Hotel Montana", cat: "reg" }
+        ]
+      }
+    ]
+  }
+];
+
+const ICONS = {
+  meal: '<svg viewBox="0 0 24 24" fill="none"><path d="M7 3v7a2 2 0 002 2h0a2 2 0 002-2V3M7 3v18M15 3c-1.5 0-2.5 1.5-2.5 4.5S13.5 12 15 12v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  reg: '<svg viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="17" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M9 3h6v3H9z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12h7M8.5 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+  activity: '<svg viewBox="0 0 24 24" fill="none"><path d="M5 21V4l14 4-14 4" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+  ceremony: '<svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6L12 15.6 6.9 18.2l1.2-5.6-4.2-3.8 5.6-.6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+  seminar: '<svg viewBox="0 0 24 24" fill="none"><rect x="9" y="2.5" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M6 11a6 6 0 0012 0M12 19v2.5M9 21.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+  prayer: '<svg viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+  sport: '<svg viewBox="0 0 24 24" fill="none"><path d="M4 8v8M6 6v12M18 6v12M20 8v8M6 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+};
+const PIN = '<svg viewBox="0 0 20 20" fill="none"><path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.6"/></svg>';
+
+const PALETTE = ['c-purple', 'c-teal', 'c-amber', 'c-pink', 'c-gray'];
+let activeDay = 0, activeSection = 0;
+
+function parseTimeToDate(dayNum, timeStr) {
+  const [h, m] = timeStr.split('.').map(Number);
+  return new Date(EVENT_YEAR, EVENT_MONTH, dayNum, h, m, 0);
+}
+
+function pulseAnim(el) {
+  el.classList.remove('anim-pop');
+  void el.offsetWidth; // force reflow so the animation restarts
+  el.classList.add('anim-pop');
+}
+
+function moveSlider(container, slider, activeIndex, skipTransition) {
+  const btns = container.querySelectorAll('button.daybtn, button.sectionpill');
+  const btn = btns[activeIndex];
+  if (!btn) return;
+  const cRect = container.getBoundingClientRect();
+  const bRect = btn.getBoundingClientRect();
+  const left = bRect.left - cRect.left;
+  const width = bRect.width;
+
+  if (skipTransition) slider.style.transition = 'none';
+  slider.style.width = width + 'px';
+  slider.style.transform = `translateX(${left}px)`;
+  slider.style.opacity = '1';
+  if (skipTransition) {
+    void slider.offsetWidth;
+    slider.style.transition = '';
+  } else {
+    slider.classList.remove('glass-flash');
+    void slider.offsetWidth;
+    slider.classList.add('glass-flash');
+  }
+}
+
+let dayFirstRender = true;
+let sectionFirstRender = true;
+
+function renderDays() {
+  const el = document.getElementById('dayCapsule');
+  el.innerHTML = '<div class="glass-slider slider-day" id="daySlider"></div>';
+  DATA.forEach((d, i) => {
+    const b = document.createElement('button');
+    b.className = 'daybtn' + (i === activeDay ? ' active' : '');
+    b.innerHTML = `<span class="dd">${d.dd}</span><span class="dn">${d.dn}</span>`;
+    b.onclick = () => {
+      if (i === activeDay) return;
+      activeDay = i; activeSection = 0;
+      renderAll();
+    };
+    el.appendChild(b);
+  });
+  const slider = document.getElementById('daySlider');
+  moveSlider(el, slider, activeDay, dayFirstRender);
+  dayFirstRender = false;
+  document.getElementById('dateSub').innerHTML = `Hari ke-${activeDay + 1} &middot; <strong>${DATA[activeDay].full}</strong>`;
+}
+
+function renderSectionPills() {
+  const el = document.getElementById('sectionPills');
+  el.innerHTML = '<div class="glass-slider slider-section" id="sectionSlider"></div>';
+  sectionFirstRender = true; // section set changes per day, so re-measure without a leftover slide
+  DATA[activeDay].sections.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.className = 'sectionpill' + (i === activeSection ? ' active' : '');
+    b.textContent = s.title;
+    b.onclick = () => {
+      if (i === activeSection) return;
+      activeSection = i;
+      renderCards();
+      syncPills();
+    };
+    el.appendChild(b);
+  });
+  const slider = document.getElementById('sectionSlider');
+  moveSlider(el, slider, activeSection, sectionFirstRender);
+  sectionFirstRender = false;
+}
+function syncPills() {
+  const el = document.getElementById('sectionPills');
+  document.querySelectorAll('.sectionpill').forEach((btn, i) => btn.classList.toggle('active', i === activeSection));
+  const slider = document.getElementById('sectionSlider');
+  moveSlider(el, slider, activeSection, false);
+}
+
+function renderCards() {
+  const list = document.getElementById('cardList');
+  const dayNum = DATA[activeDay].dn;
+  const items = DATA[activeDay].sections[activeSection].items;
+  list.innerHTML = '';
+  let colorIdx = 0;
+  items.forEach((item) => {
+    const colorClass = item.tone === 'red' ? 'c-red' : PALETTE[(colorIdx++) % PALETTE.length];
+    const start = parseTimeToDate(dayNum, item.time);
+    const end = parseTimeToDate(dayNum, item.time2);
+    const card = document.createElement('div');
+    card.className = `card ${colorClass}`;
+    card.dataset.start = start.getTime();
+    card.dataset.end = end.getTime();
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="icon-badge">${ICONS[item.cat] || ICONS.activity}</div>
+        <div class="badgecol">
+          <div class="time-badge">${item.time} – ${item.time2}</div>
+          <div class="live-badge" hidden><span class="live-dot"></span>Berlangsung</div>
+        </div>
+      </div>
+      <p class="card-title">${item.kegiatan}</p>
+      ${item.tempat ? `<span class="card-place">${PIN}${item.tempat}</span>` : ''}
+      ${item.detail ? `
+        <button type="button" class="detail-toggle" aria-expanded="false">
+          <span class="chev">›</span><span class="dt-label">Lihat detail</span>
+        </button>
+        <div class="detail-content">
+          <p class="card-detail">${item.detail}</p>
+        </div>
+      ` : ''}
+    `;
+    list.appendChild(card);
+
+    if (item.detail) {
+      const toggle = card.querySelector('.detail-toggle');
+      const content = card.querySelector('.detail-content');
+      toggle.addEventListener('click', () => {
+        pulseAnim(toggle);
+        const isOpen = toggle.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.querySelector('.dt-label').textContent = isOpen ? 'Sembunyikan detail' : 'Lihat detail';
+        content.style.maxHeight = isOpen ? content.scrollHeight + 'px' : '0px';
+      });
+    }
+  });
+
+  // restart the section fade-in animation
+  list.classList.remove('anim-in');
+  void list.offsetWidth;
+  list.classList.add('anim-in');
+
+  updateLiveBadges();
+}
+
+function updateLiveBadges() {
+  const now = Date.now();
+  document.querySelectorAll('.card').forEach(card => {
+    const start = Number(card.dataset.start);
+    const end = Number(card.dataset.end);
+    const badge = card.querySelector('.live-badge');
+    if (badge) badge.hidden = !(now >= start && now <= end);
+  });
+}
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateCountdown() {
+  const box = document.getElementById('countdownBox');
+  const now = new Date();
+
+  if (now < EVENT_START) {
+    let diff = EVENT_START - now;
+    const days = Math.floor(diff / 86400000); diff -= days * 86400000;
+    const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
+    const mins = Math.floor(diff / 60000); diff -= mins * 60000;
+    const secs = Math.floor(diff / 1000);
+    box.innerHTML = `
+      <div class="cd-label">SEVIM 2026 dimulai dalam</div>
+      <div class="cd-cells">
+        <div class="cd-cell"><span class="cd-num">${days}</span><span class="cd-unit">HARI</span></div>
+        <div class="cd-cell"><span class="cd-num">${pad(hours)}</span><span class="cd-unit">JAM</span></div>
+        <div class="cd-cell"><span class="cd-num">${pad(mins)}</span><span class="cd-unit">MNT</span></div>
+        <div class="cd-cell"><span class="cd-num">${pad(secs)}</span><span class="cd-unit">DTK</span></div>
+      </div>`;
+  } else if (now >= EVENT_START && now <= EVENT_END) {
+    box.innerHTML = `<div class="cd-label">Status acara</div><div class="cd-status">Sedang berlangsung 🎉</div>`;
+  } else {
+    box.innerHTML = `<div class="cd-label">Status acara</div><div class="cd-status">Telah selesai</div>`;
+  }
+}
+
+function renderAll() {
+  renderDays();
+  renderSectionPills();
+  renderCards();
+}
+
+function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('sevim-theme'); } catch (e) {}
+  if (saved === 'light' || saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', saved);
+  }
+}
+function toggleTheme() {
+  const btn = document.getElementById('themeToggle');
+  btn.classList.remove('spin');
+  void btn.offsetWidth;
+  btn.classList.add('spin');
+
+  const current = document.documentElement.getAttribute('data-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const effectiveCurrent = current || (prefersDark ? 'dark' : 'light');
+  const next = effectiveCurrent === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('sevim-theme', next); } catch (e) {}
+}
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+initTheme();
+renderAll();
+updateCountdown();
+setInterval(() => { updateCountdown(); updateLiveBadges(); }, 1000);
+
+window.addEventListener('resize', () => {
+  const dayEl = document.getElementById('dayCapsule');
+  const daySlider = document.getElementById('daySlider');
+  if (dayEl && daySlider) moveSlider(dayEl, daySlider, activeDay, true);
+
+  const secEl = document.getElementById('sectionPills');
+  const secSlider = document.getElementById('sectionSlider');
+  if (secEl && secSlider) moveSlider(secEl, secSlider, activeSection, true);
+});
+</script>
+</body>
+</html>
