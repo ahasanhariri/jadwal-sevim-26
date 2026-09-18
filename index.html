@@ -564,6 +564,7 @@
   <footer class="note">Susunan acara dapat berubah menyesuaikan kondisi di lapangan.</footer>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
 <script>
 const EVENT_YEAR = 2026;
 const EVENT_MONTH = 8; // September (0-indexed)
@@ -809,6 +810,32 @@ function updateLiveBadges() {
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
+/* ---- Confetti saat countdown habis ---- */
+let countdownWasFinished = (Date.now() >= EVENT_START.getTime());
+
+function fireConfetti() {
+  if (typeof confetti !== 'function') return;
+  const colors = ['#B6A2F7', '#FF4B3E', '#8FE3D0', '#FFD37A', '#FFB0D2', '#B7E7B0', '#7EC8FF'];
+
+  // ledakan besar di tengah
+  confetti({
+    particleCount: 160,
+    spread: 100,
+    startVelocity: 45,
+    origin: { y: 0.5 },
+    colors
+  });
+
+  // semburan dari kiri & kanan selama beberapa detik
+  const duration = 3000;
+  const end = Date.now() + duration;
+  (function frame() {
+    confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0, y: 0.7 }, colors });
+    confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1, y: 0.7 }, colors });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
+}
+
 function buildCountdownMeta() {
   return `
     <div class="cd-meta">
@@ -848,6 +875,11 @@ function buildCountdownHTML() {
 }
 
 function updateCountdown() {
+  const now = new Date();
+  if (!countdownWasFinished && now >= EVENT_START) {
+    countdownWasFinished = true;
+    fireConfetti();
+  }
   document.getElementById('countdownBox').innerHTML = buildCountdownHTML();
   const popupBox = document.getElementById('popupCountdown');
   if (popupBox) popupBox.innerHTML = buildCountdownCore();
