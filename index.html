@@ -277,6 +277,25 @@
   .datesub { font-size: 13px; color: var(--ink-soft); font-weight: 500; margin: 0 2px 22px; }
   .datesub strong { color: var(--ink); font-weight: 700; }
 
+  /* ---- Dokumentasi section ---- */
+  .docsection { margin-bottom: 14px; }
+  .doc-label {
+    background: var(--black-pill); color: var(--pill-text);
+    border-radius: 18px; padding: 12px 16px; text-align: center;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .doc-download-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--purple); color: var(--purple-ink);
+    border-radius: 16px; padding: 12px 16px; text-decoration: none;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13.5px;
+    box-shadow: 0 4px 14px var(--shadow);
+    transition: transform .15s ease;
+  }
+  .doc-download-btn:active { transform: scale(0.97); }
+  .doc-download-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
   /* ---- Section pills (liquid-glass sliding indicator) ---- */
   .sectionpills {
     position: relative;
@@ -300,13 +319,28 @@
 
   /* ---- Cards ---- */
   .cardlist { display: flex; flex-direction: column; gap: 16px; }
-  .card { position: relative; border-radius: 26px; padding: 20px 20px 18px; overflow: hidden; }
+  .card { position: relative; border-radius: 26px; padding: 20px 20px 18px; overflow: hidden; transition: background .5s ease, color .5s ease; }
   .card.c-purple { background: var(--purple); color: var(--purple-ink); }
   .card.c-gray   { background: var(--gray);   color: var(--gray-ink); }
   .card.c-red    { background: var(--red);    color: var(--red-ink); }
   .card.c-teal   { background: var(--teal);   color: var(--teal-ink); }
   .card.c-amber  { background: var(--amber);  color: var(--amber-ink); }
   .card.c-pink   { background: var(--pink);   color: var(--pink-ink); }
+
+  /* ---- Selesai (sudah selesai): kartu otomatis jadi abu-abu secara real time ---- */
+  .card.is-done {
+    background: var(--gray) !important;
+    color: var(--gray-ink) !important;
+  }
+  .card.is-done .icon-badge,
+  .card.is-done .detail-toggle { background: rgba(23,20,27,0.08); }
+  .card.is-done .detail-toggle:hover { background: rgba(23,20,27,0.14); }
+  :root[data-theme="dark"] .card.is-done .icon-badge,
+  :root:not([data-theme="light"]) .card.is-done .icon-badge,
+  :root[data-theme="dark"] .card.is-done .detail-toggle,
+  :root:not([data-theme="light"]) .card.is-done .detail-toggle {
+    background: rgba(255,255,255,0.1);
+  }
 
   .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; gap: 10px; }
   .icon-badge {
@@ -337,15 +371,30 @@
   }
   .soon-badge {
     display: inline-flex; align-items: center; gap: 6px;
-    background: var(--gray); color: var(--gray-ink);
+    background: var(--amber); color: var(--amber-ink);
     font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px;
     padding: 6px 11px 6px 9px; border-radius: 16px; white-space: nowrap;
-    opacity: 0.85;
   }
   .soon-badge[hidden] { display: none; }
   .soon-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--amber-ink);
+    opacity: 0.6;
+  }
+  .done-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(23,20,27,0.12); color: var(--gray-ink);
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px;
+    padding: 6px 11px 6px 9px; border-radius: 16px; white-space: nowrap;
+    opacity: 0.9;
+  }
+  .done-badge[hidden] { display: none; }
+  .done-dot {
     width: 7px; height: 7px; border-radius: 50%; background: var(--gray-ink);
-    opacity: 0.5;
+    opacity: 0.6;
+  }
+  :root[data-theme="dark"] .done-badge,
+  :root:not([data-theme="light"]) .done-badge {
+    background: rgba(255,255,255,0.14);
   }
   @keyframes blink-fade { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
   @keyframes blink-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.4; } }
@@ -513,6 +562,88 @@
     0%, 100% { box-shadow: 0 10px 24px var(--shadow), 0 0 0 0 rgba(var(--purple-rgb),0.45); }
     50% { box-shadow: 0 10px 24px var(--shadow), 0 0 0 9px rgba(var(--purple-rgb),0); }
   }
+
+  /* ---- Delay tag on cards (shown when a session is running late) ---- */
+  .delay-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--amber); color: var(--amber-ink);
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10.5px;
+    padding: 5px 10px 5px 9px; border-radius: 14px; white-space: nowrap;
+  }
+
+  /* ---- Admin gear (only visible to the organizer / editors) ---- */
+  .admin-gear {
+    position: fixed; right: 16px; bottom: 16px; z-index: 60;
+    width: 46px; height: 46px; border-radius: 50%; border: none;
+    background: var(--black-pill); color: var(--pill-text);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 24px var(--shadow); cursor: pointer;
+    transition: transform .15s ease;
+  }
+  .admin-gear[hidden] { display: none; }
+  .admin-gear svg { width: 21px; height: 21px; }
+  .admin-gear:active { transform: scale(0.92); }
+
+  .admin-overlay {
+    position: fixed; inset: 0; z-index: 90;
+    background: rgba(10, 6, 15, 0.55);
+    -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .admin-overlay[hidden] { display: none; }
+  .admin-panel {
+    background: var(--paper); color: var(--ink);
+    width: 100%; max-width: 460px;
+    border-radius: 24px 24px 0 0;
+    padding: 20px 18px 22px;
+    max-height: 82vh; display: flex; flex-direction: column;
+    box-shadow: 0 -20px 50px rgba(0,0,0,0.35);
+  }
+  .admin-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .admin-header h2 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; margin: 0;
+  }
+  .admin-close {
+    border: none; background: var(--gray); color: var(--gray-ink);
+    width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+    font-size: 14px; line-height: 1; flex-shrink: 0;
+  }
+  .admin-hint { font-size: 12px; color: var(--ink-soft); line-height: 1.5; margin: 10px 0 14px; }
+  .admin-list { overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 2px; }
+  .admin-day-label {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px;
+    margin: 10px 0 2px; color: var(--ink-soft);
+  }
+  .admin-day-label:first-child { margin-top: 0; }
+  .admin-row {
+    background: var(--bg1); border-radius: 14px; padding: 10px 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .admin-row-title { flex: 1; min-width: 0; }
+  .admin-row-title .t { font-size: 13px; font-weight: 700; display: block; line-height: 1.3; }
+  .admin-row-title .s { font-size: 11px; color: var(--ink-soft); display: block; margin-top: 1px; }
+  .admin-row-controls { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .admin-step {
+    width: 26px; height: 26px; border-radius: 8px; border: none;
+    background: var(--gray); color: var(--gray-ink); font-weight: 700; cursor: pointer;
+  }
+  .admin-delay-input {
+    width: 52px; text-align: center; border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px; padding: 5px 2px; font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 12.5px; background: var(--paper); color: var(--ink);
+  }
+  .admin-unit { font-size: 10.5px; color: var(--ink-soft); }
+  .admin-actions {
+    display: flex; align-items: center; gap: 12px; margin-top: 16px;
+    padding-top: 14px; border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .admin-save {
+    background: var(--ink); color: var(--paper); border: none;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
+    padding: 11px 18px; border-radius: 14px; cursor: pointer;
+  }
+  .admin-save:disabled { opacity: 0.6; cursor: default; }
+  .admin-status { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -554,6 +685,13 @@
 
   <div class="countdown" id="countdownBox"></div>
 
+  <div class="docsection">
+    <a class="doc-download-btn" href="https://drive.google.com/drive/folders/1M9fn1jOwH4y77DzfBUEWxNo4forsN_Ei?usp=sharing" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Unduh Dokumentasi
+    </a>
+  </div>
+
   <div class="daycapsule" id="dayCapsule"></div>
   <p class="datesub" id="dateSub"></p>
 
@@ -564,8 +702,31 @@
   <footer class="note">Susunan acara dapat berubah menyesuaikan kondisi di lapangan.</footer>
 </div>
 
+<button type="button" class="admin-gear" id="adminGearBtn" aria-label="Kelola keterlambatan jadwal" hidden>
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 15.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" stroke="currentColor" stroke-width="1.7"/><path d="M19.4 13a7.6 7.6 0 000-2l2-1.5-2-3.4-2.3.9a7.7 7.7 0 00-1.7-1l-.3-2.5H9.9l-.3 2.5a7.7 7.7 0 00-1.7 1l-2.3-.9-2 3.4 2 1.5a7.6 7.6 0 000 2l-2 1.5 2 3.4 2.3-.9c.5.4 1.1.7 1.7 1l.3 2.5h4.2l.3-2.5c.6-.3 1.2-.6 1.7-1l2.3.9 2-3.4-2-1.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="admin-overlay" id="adminOverlay" hidden>
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2>Kelola Keterlambatan Jadwal</h2>
+      <button type="button" class="admin-close" id="adminClose" aria-label="Tutup">✕</button>
+    </div>
+    <p class="admin-hint">Atur berapa menit tiap sesi ngaret. Setelah disimpan, perubahan langsung tampil real-time ke semua orang yang sedang membuka halaman ini — tidak perlu edit kode.</p>
+    <div class="admin-list" id="adminList"></div>
+    <div class="admin-actions">
+      <button type="button" class="admin-save" id="adminSave">Simpan &amp; Publish</button>
+      <span class="admin-status" id="adminStatus"></span>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
 <script>
+// Diisi lewat polling ke /api/overrides (backend Vercel + Supabase),
+// bukan lagi lewat claude.ai — jadi jalan di domain manapun.
+let scheduleOverrides = {};
+
 const EVENT_YEAR = 2026;
 const EVENT_MONTH = 8; // September (0-indexed)
 const EVENT_START = new Date(EVENT_YEAR, EVENT_MONTH, 18, 11, 0, 0);
@@ -734,10 +895,18 @@ function renderCards() {
   const items = DATA[activeDay].sections[activeSection].items;
   list.innerHTML = '';
   let colorIdx = 0;
-  items.forEach((item) => {
+  items.forEach((item, itemIdx) => {
     const colorClass = item.tone === 'red' ? 'c-red' : PALETTE[(colorIdx++) % PALETTE.length];
-    const start = parseTimeToDate(dayNum, item.time);
-    const end = parseTimeToDate(dayNum, item.time2);
+    const itemId = `d${activeDay}-s${activeSection}-i${itemIdx}`;
+    const ov = scheduleOverrides[itemId];
+    const delayMin = (ov && typeof ov.delayMin === 'number') ? ov.delayMin : 0;
+    let start = parseTimeToDate(dayNum, item.time);
+    let end = parseTimeToDate(dayNum, item.time2);
+    if (delayMin) {
+      start = new Date(start.getTime() + delayMin * 60000);
+      end = new Date(end.getTime() + delayMin * 60000);
+    }
+    const timeText = delayMin ? `${formatHHMM(start)} – ${formatHHMM(end)}` : `${item.time} – ${item.time2}`;
     let detailBody = '';
     if (item.detail) {
       if (typeof item.detail === 'object') {
@@ -749,15 +918,18 @@ function renderCards() {
 
     const card = document.createElement('div');
     card.className = `card ${colorClass}`;
+    card.dataset.itemId = itemId;
     card.dataset.start = start.getTime();
     card.dataset.end = end.getTime();
     card.innerHTML = `
       <div class="card-top">
         <div class="icon-badge">${ICONS[item.cat] || ICONS.activity}</div>
         <div class="badgecol">
-          <div class="time-badge">${item.time} – ${item.time2}</div>
+          ${delayMin ? `<span class="delay-tag">⏱ Ngaret ${delayMin > 0 ? '+' : ''}${delayMin}m</span>` : ''}
+          <div class="time-badge">${timeText}</div>
           <div class="soon-badge" hidden><span class="soon-dot"></span>Segera</div>
           <div class="live-badge" hidden><span class="live-dot"></span>Berlangsung</div>
+          <div class="done-badge" hidden><span class="done-dot"></span>Selesai</div>
         </div>
       </div>
       <p class="card-title">${item.kegiatan}</p>
@@ -801,14 +973,19 @@ function updateLiveBadges() {
     const end = Number(card.dataset.end);
     const liveBadge = card.querySelector('.live-badge');
     const soonBadge = card.querySelector('.soon-badge');
+    const doneBadge = card.querySelector('.done-badge');
+    const isDone = now > end;
     const isLive = now >= start && now <= end;
     const isSoon = now < start;
     if (liveBadge) liveBadge.hidden = !isLive;
     if (soonBadge) soonBadge.hidden = !isSoon;
+    if (doneBadge) doneBadge.hidden = !isDone;
+    card.classList.toggle('is-done', isDone);
   });
 }
 
 function pad(n) { return String(n).padStart(2, '0'); }
+function formatHHMM(date) { return pad(date.getHours()) + '.' + pad(date.getMinutes()); }
 
 /* ---- Confetti saat countdown habis ---- */
 let countdownWasFinished = (Date.now() >= EVENT_START.getTime());
@@ -963,11 +1140,164 @@ function initPopup() {
   });
 }
 
+/* ---- Admin: kelola keterlambatan lewat backend sendiri (Vercel + Supabase) ---- */
+const OVERRIDES_API = '/api/overrides';
+let pendingOverrides = {};
+let adminPassword = sessionStorage.getItem('sevim-admin-pass') || '';
+let lastOverridesJSON = '{}';
+
+function buildAdminList() {
+  const list = document.getElementById('adminList');
+  list.innerHTML = '';
+  DATA.forEach((day, dayIdx) => {
+    const dayHeader = document.createElement('div');
+    dayHeader.className = 'admin-day-label';
+    dayHeader.textContent = day.full;
+    list.appendChild(dayHeader);
+
+    day.sections.forEach((sec, secIdx) => {
+      sec.items.forEach((item, itemIdx) => {
+        const itemId = `d${dayIdx}-s${secIdx}-i${itemIdx}`;
+        const current = (pendingOverrides[itemId] && pendingOverrides[itemId].delayMin) || 0;
+
+        const row = document.createElement('div');
+        row.className = 'admin-row';
+        row.innerHTML = `
+          <div class="admin-row-title">
+            <span class="t">${item.kegiatan}</span>
+            <span class="s">${sec.title} · ${item.time}–${item.time2}</span>
+          </div>
+          <div class="admin-row-controls">
+            <button type="button" class="admin-step" data-step="-15">−</button>
+            <input type="number" class="admin-delay-input" step="5" value="${current}" data-item-id="${itemId}">
+            <button type="button" class="admin-step" data-step="15">+</button>
+            <span class="admin-unit">mnt</span>
+          </div>
+        `;
+        list.appendChild(row);
+
+        const input = row.querySelector('.admin-delay-input');
+        row.querySelectorAll('.admin-step').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const step = Number(btn.dataset.step);
+            input.value = Number(input.value || 0) + step;
+            input.dispatchEvent(new Event('change'));
+          });
+        });
+        input.addEventListener('change', () => {
+          const val = Math.round(Number(input.value) / 5) * 5 || 0;
+          input.value = val;
+          if (val) {
+            pendingOverrides[itemId] = { delayMin: val };
+          } else {
+            delete pendingOverrides[itemId];
+          }
+        });
+      });
+    });
+  });
+}
+
+function openAdminPanel() {
+  pendingOverrides = JSON.parse(JSON.stringify(scheduleOverrides));
+  buildAdminList();
+  document.getElementById('adminStatus').textContent = '';
+  document.getElementById('adminOverlay').hidden = false;
+}
+function closeAdminPanel() {
+  document.getElementById('adminOverlay').hidden = true;
+}
+
+async function saveScheduleOverrides() {
+  const statusEl = document.getElementById('adminStatus');
+  const saveBtn = document.getElementById('adminSave');
+
+  if (!adminPassword) {
+    adminPassword = window.prompt('Masukkan password admin:') || '';
+    if (!adminPassword) return;
+  }
+
+  saveBtn.disabled = true;
+  statusEl.textContent = 'Menyimpan...';
+  try {
+    const cleaned = {};
+    Object.keys(pendingOverrides).forEach(id => {
+      const v = pendingOverrides[id] && pendingOverrides[id].delayMin;
+      if (v) cleaned[id] = v;
+    });
+
+    const res = await fetch(OVERRIDES_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: adminPassword, overrides: cleaned })
+    });
+
+    if (res.status === 401) {
+      statusEl.textContent = 'Password salah.';
+      adminPassword = '';
+      sessionStorage.removeItem('sevim-admin-pass');
+      saveBtn.disabled = false;
+      return;
+    }
+    if (!res.ok) throw new Error('save_failed');
+
+    sessionStorage.setItem('sevim-admin-pass', adminPassword);
+    scheduleOverrides = {};
+    Object.keys(cleaned).forEach(id => { scheduleOverrides[id] = { delayMin: cleaned[id] }; });
+    lastOverridesJSON = JSON.stringify(cleaned);
+    renderAll();
+    updateLiveBadges();
+    statusEl.textContent = 'Tersimpan! Semua orang akan update dalam beberapa detik.';
+    setTimeout(closeAdminPanel, 900);
+  } catch (err) {
+    statusEl.textContent = 'Gagal menyimpan, coba lagi.';
+  } finally {
+    saveBtn.disabled = false;
+  }
+}
+
+// Gear cuma tampil kalau dibuka lewat link admin (?admin=1), supaya
+// peserta biasa nggak ketemu tombolnya. Password tetap divalidasi di
+// server saat menyimpan, jadi ini murni supaya UI-nya rapi.
+function initAdminVisibility() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('admin') === '1') {
+    document.getElementById('adminGearBtn').hidden = false;
+  }
+}
+
+// Polling: setiap beberapa detik, tarik data terbaru dari backend supaya
+// semua orang yang sedang buka halaman ini ikut update tanpa refresh manual.
+async function pollOverrides() {
+  try {
+    const res = await fetch(OVERRIDES_API, { cache: 'no-store' });
+    if (!res.ok) return;
+    const flat = await res.json(); // { itemId: delayMin }
+    const json = JSON.stringify(flat);
+    if (json === lastOverridesJSON) return; // tidak ada perubahan
+    lastOverridesJSON = json;
+    scheduleOverrides = {};
+    Object.keys(flat).forEach(id => { scheduleOverrides[id] = { delayMin: flat[id] }; });
+    renderAll();
+    updateLiveBadges();
+  } catch (e) { /* koneksi gagal, coba lagi di polling berikutnya */ }
+}
+
+document.getElementById('adminGearBtn').addEventListener('click', openAdminPanel);
+document.getElementById('adminClose').addEventListener('click', closeAdminPanel);
+document.getElementById('adminOverlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('adminOverlay')) closeAdminPanel();
+});
+document.getElementById('adminSave').addEventListener('click', saveScheduleOverrides);
+
 initTheme();
+initAdminVisibility();
+pollOverrides().then(() => { renderAll(); updateCountdown(); });
 renderAll();
 updateCountdown();
 initPopup();
 setInterval(() => { updateCountdown(); updateLiveBadges(); }, 1000);
+setInterval(pollOverrides, 8000);
 
 window.addEventListener('resize', () => {
   const dayEl = document.getElementById('dayCapsule');
