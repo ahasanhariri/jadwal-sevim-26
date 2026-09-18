@@ -477,6 +477,19 @@
     margin: 2px 0 16px;
     animation: popup-shake 0.6s ease-in-out infinite;
   }
+  .popup-d1doc-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    margin: 0 0 18px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: inherit; font-weight: 700; font-size: 13px;
+    text-decoration: none;
+    background: var(--bg1); color: var(--ink);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform .15s ease;
+  }
+  .popup-d1doc-btn:active { transform: scale(0.96); }
+  .popup-d1doc-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
   @keyframes popup-shake {
     0%, 100% { transform: translateX(0) rotate(0deg); }
     15% { transform: translateX(-4px) rotate(-2deg); }
@@ -660,7 +673,11 @@
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
     </button>
     <div class="popup-eyebrow">SEVIM &middot; UIBBC 2026</div>
-    <div class="popup-today">Today is The Day</div>
+    <div class="popup-today">Gimana SEVIM D1? Semangat untuk D2 yaa~</div>
+    <a class="popup-d1doc-btn" href="https://drive.google.com/drive/u/3/folders/1VGb0YkKnglwiyk4LlSfH9nFXL3XpnjGY" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M10 3v9.5m0 0l-3.5-3.5M10 12.5l3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 14v1.5A1.5 1.5 0 005.5 17h9a1.5 1.5 0 001.5-1.5V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Unduh Dokumentasi D1</span>
+    </a>
     <div class="popup-cd" id="popupCountdown"></div>
     <div class="popup-meta">
       <div class="popup-meta-row"><svg viewBox="0 0 20 20" fill="none"><path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.6"/></svg><span>Hotel Montana Kuningan</span></div>
