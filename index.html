@@ -805,6 +805,32 @@ function parseTimeToDate(dayNum, timeStr) {
   return new Date(EVENT_YEAR, EVENT_MONTH, dayNum, h, m, 0);
 }
 
+/* ---- Auto pilih hari & section aktif sesuai waktu sekarang ----
+   Kalau section pertama hari ini sudah lewat, langsung buka section
+   berikutnya. Kalau hari ini sudah lewat semua, langsung buka hari
+   berikutnya. ---- */
+function pickInitialDayAndSection() {
+  const now = Date.now();
+  let dayIndex = 0;
+  for (let d = 0; d < DATA.length; d++) {
+    const day = DATA[d];
+    const firstItem = day.sections[0].items[0];
+    const dayStart = parseTimeToDate(day.dn, firstItem.time).getTime();
+    if (now >= dayStart) dayIndex = d;
+  }
+  const day = DATA[dayIndex];
+  let sectionIndex = 0;
+  for (let s = 0; s < day.sections.length; s++) {
+    const items = day.sections[s].items;
+    const lastItem = items[items.length - 1];
+    const sectionEnd = parseTimeToDate(day.dn, lastItem.time2).getTime();
+    if (now >= sectionEnd && s < day.sections.length - 1) {
+      sectionIndex = s + 1;
+    }
+  }
+  return { dayIndex, sectionIndex };
+}
+
 function pulseAnim(el) {
   el.classList.remove('anim-pop');
   void el.offsetWidth; // force reflow so the animation restarts
@@ -1292,6 +1318,9 @@ document.getElementById('adminSave').addEventListener('click', saveScheduleOverr
 
 initTheme();
 initAdminVisibility();
+const initialPick = pickInitialDayAndSection();
+activeDay = initialPick.dayIndex;
+activeSection = initialPick.sectionIndex;
 pollOverrides().then(() => { renderAll(); updateCountdown(); });
 renderAll();
 updateCountdown();
