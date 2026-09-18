@@ -421,6 +421,22 @@
     transition: opacity .3s ease;
   }
   .popup-overlay.show { opacity: 1; pointer-events: auto; }
+  .popup-today {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 20px; line-height: 1.2;
+    text-align: center; color: var(--red);
+    margin: 2px 0 16px;
+    animation: popup-shake 0.6s ease-in-out infinite;
+  }
+  @keyframes popup-shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    15% { transform: translateX(-4px) rotate(-2deg); }
+    30% { transform: translateX(4px) rotate(2deg); }
+    45% { transform: translateX(-4px) rotate(-2deg); }
+    60% { transform: translateX(4px) rotate(2deg); }
+    75% { transform: translateX(-2px) rotate(-1deg); }
+    90% { transform: translateX(2px) rotate(1deg); }
+  }
   .popup-card {
     position: relative;
     background: var(--paper); color: var(--ink);
@@ -513,6 +529,7 @@
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
     </button>
     <div class="popup-eyebrow">SEVIM &middot; UIBBC 2026</div>
+    <div class="popup-today">Today is The Day</div>
     <div class="popup-cd" id="popupCountdown"></div>
     <div class="popup-meta">
       <div class="popup-meta-row"><svg viewBox="0 0 20 20" fill="none"><path d="M10 18s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2.1" stroke="currentColor" stroke-width="1.6"/></svg><span>Hotel Montana Kuningan</span></div>
