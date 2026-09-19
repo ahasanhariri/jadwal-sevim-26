@@ -673,10 +673,10 @@
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
     </button>
     <div class="popup-eyebrow">SEVIM &middot; UIBBC 2026</div>
-    <div class="popup-today">Gimana SEVIM D1? Semangat untuk D2 yaa~</div>
-    <a class="popup-d1doc-btn" href="https://drive.google.com/drive/u/3/folders/1VGb0YkKnglwiyk4LlSfH9nFXL3XpnjGY" target="_blank" rel="noopener noreferrer">
+    <div class="popup-today" id="popupToday">Gimana SEVIM D1? Semangat untuk D2 yaa~</div>
+    <a class="popup-d1doc-btn" id="popupActionBtn" href="https://drive.google.com/drive/u/3/folders/1VGb0YkKnglwiyk4LlSfH9nFXL3XpnjGY" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 20 20" fill="none"><path d="M10 3v9.5m0 0l-3.5-3.5M10 12.5l3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 14v1.5A1.5 1.5 0 005.5 17h9a1.5 1.5 0 001.5-1.5V14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Unduh Dokumentasi D1</span>
+      <span id="popupActionLabel">Unduh Dokumentasi</span>
     </a>
     <div class="popup-cd" id="popupCountdown"></div>
     <div class="popup-meta">
@@ -793,7 +793,7 @@ const DATA = [
         title: "Outbond & Penutupan",
         items: [
           { time: "07.00", time2: "10.30", kegiatan: "Outbond", detail: { label: "Dipandu oleh", name: "Tim Outbond" }, tempat: "Lapangan Hotel Montana", cat: "sport" },
-          { time: "10.30", time2: "11.00", kegiatan: "Closing Ceremony", detail: "Sambutan Rektor sekaligus penutupan resmi \"Happiness and Success Academic\", doa, menyanyi bersama & bersalaman peserta.", tempat: "Aula Ballroom Hotel Montana", cat: "ceremony", tone: "red" },
+          { time: "10.30", time2: "11.00", kegiatan: "Paper Mob", detail: "Sambutan Rektor sekaligus penutupan resmi \"Happiness and Success Academic\", doa, menyanyi bersama & bersalaman peserta.", tempat: "Aula Ballroom Hotel Montana", cat: "ceremony", tone: "red" },
           { time: "11.00", time2: "11.30", kegiatan: "Check Out", tempat: "Aula Ballroom Hotel Montana", cat: "reg" }
         ]
       }
@@ -1094,6 +1094,32 @@ function buildCountdownHTML() {
   return buildCountdownCore() + buildCountdownMeta();
 }
 
+const ECAMPUS_URL = 'https://pmb.bungabangsacirebon.ac.id/iaibbc/pmb';
+let popupModeSet = null;
+
+function updatePopupMessage() {
+  const now = new Date();
+  const isDone = now > EVENT_END;
+  const mode = isDone ? 'done' : 'default';
+  if (popupModeSet === mode) return;
+  popupModeSet = mode;
+
+  const todayEl = document.getElementById('popupToday');
+  const btnEl = document.getElementById('popupActionBtn');
+  const labelEl = document.getElementById('popupActionLabel');
+  if (!todayEl || !btnEl || !labelEl) return;
+
+  if (isDone) {
+    todayEl.textContent = 'Selamat, kamu resmi menjadi Mahasiswa Baru UIBBC!';
+    btnEl.href = ECAMPUS_URL;
+    labelEl.textContent = 'Cek Status di e-Campus';
+  } else {
+    todayEl.textContent = 'Gimana SEVIM D1? Semangat untuk D2 yaa~';
+    btnEl.href = 'https://drive.google.com/drive/u/3/folders/1VGb0YkKnglwiyk4LlSfH9nFXL3XpnjGY';
+    labelEl.textContent = 'Unduh Dokumentasi';
+  }
+}
+
 function updateCountdown() {
   const now = new Date();
   if (!countdownWasFinished && now >= EVENT_START) {
@@ -1103,6 +1129,7 @@ function updateCountdown() {
   document.getElementById('countdownBox').innerHTML = buildCountdownHTML();
   const popupBox = document.getElementById('popupCountdown');
   if (popupBox) popupBox.innerHTML = buildCountdownCore();
+  updatePopupMessage();
 }
 
 function renderAll() {
